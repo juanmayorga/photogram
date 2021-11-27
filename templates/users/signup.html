@@ -1,0 +1,16 @@
+{% extends "users/base.html"%}
+{% block head_content %}
+<title>Photogram</title>
+{% endblock %}
+
+{% block container %}
+  <form action="{% url 'users:signup' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <button type="submit" class="btn btn-primary btn-block mt-5">Register</button>
+  </form>
+  <div class="text-center">
+    <h5>¿Tienes una cuenta? <a href="{% url 'users:login' %}">Entrar</a></h5>
+  </div>
+  
+{% endblock %}
